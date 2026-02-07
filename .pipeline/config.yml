@@ -1,33 +1,20 @@
-# Project configuration
+###
+# This file configures the project "Piper" pipeline of your project.
+# For a reference of the configuration concept and available options, please have a look into its documentation.
+#
+# The documentation for the most recent pipeline version can always be found at:
+#    https://www.project-piper.io/
+#
+# This is a YAML-file. YAML is an indentation-sensitive file format. Please make sure to properly indent changes to it.
+###
+
+
+
+### General project setup
 general:
   inferBuildTool: true
-  productiveBranch: 'main'
 
-# Stage configuration
-stages:
-  'Confirm':
-    manualConfirmation: false
-
-#  npmAudit:
-#    auditedAdvisories:
-
-#  lint:
-#    ui5BestPractices:
-#      failThreshold:
-#        error: <THRESHOLD>
-#        warning: <THRESHOLD>
-#        info: <THRESHOLD>
-
-# deploy to Cloud Foundry
-  productionDeployment:
-    cfTargets:
-      - appName: 'app'
-        org: 'hussainiali_trial'
-        space: 'dev'
-        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-        credentialsId: 'deploy-to-cf'
-
-# Step configuration
+### Step-specific configuration
 steps:
   mavenExecute:
     dockerImage: devxci/mbtci:1.0.14
@@ -35,8 +22,21 @@ steps:
   artifactPrepareVersion:
     versioningType: cloud_noTag
 
-# transport management upload
-#  tmsUpload:
-#    nodeName: '<%= cfspace %>'
-#    credentialsId: 'tms-sk'
-#    customDescription: '<%= projectName %> <%= cfspace %>'
+### Stage-specific configuration
+stages:
+  'Confirm':
+    manualConfirmation: false
+
+#  Integration:
+#    credentials:
+#      - alias: 'mySystemAlias'
+#        credentialId: 'mySystemCredentialsId'
+
+  Release:
+    cfTargets:
+      - org: 'hussainiali_trial'
+        space: 'dev'
+        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+        appName: 'app'
+        manifest: 'manifest.yml'
+        credentialsId: 'hussaini-ali@outlook.com'
