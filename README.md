@@ -1,6 +1,7 @@
 # Getting Started
 
 Welcome to your new project.
+ci/cd checking
 
 It contains these folders and files, following our recommended project layout:
 
