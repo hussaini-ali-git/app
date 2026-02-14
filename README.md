@@ -1,7 +1,7 @@
 # Getting Started
 
 Welcome to your new project.
-ci/cd checking with job editor
+ci/cd checking with job editor 2
 
 It contains these folders and files, following our recommended project layout:
 
