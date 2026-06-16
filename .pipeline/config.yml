@@ -34,7 +34,7 @@ stages:
 
   Release:
     cfTargets:
-      - org: 'hussainiali_trial'
+      - org: 'a2399349trial'
         space: 'dev'
         apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
         appName: 'app'
