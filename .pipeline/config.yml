@@ -12,7 +12,8 @@
 
 ### General project setup
 general:
-  inferBuildTool: true
+  buildTool: 'mta'
+  #inferBuildTool: true
 
 ### Step-specific configuration
 steps:
@@ -29,19 +30,36 @@ steps:
     mtaDeployParameters: '-f --version-rule ALL'
   tmsUpload:
     nodeName: "QAS"
-    credentialsId: "tms-credentials" 
+    credentialsId: "tms-instance-sk" 
 
 ### Stage-specific configuration
 stages:
-  'Confirm':
-    manualConfirmation: false
+  Build:
+    mavenExecuteStaticCodeCheck: false
+    npmExecuteLint: true
+
+Additional Unit Tests:
+  npmExecuteScripts: false
+  karmaExecuteTests: false
+
+  #'Confirm':
+  #  manualConfirmation: false
 
 #  Integration:
 #    credentials:
 #      - alias: 'mySystemAlias'
 #        credentialId: 'mySystemCredentialsId'
 
-  Release:
+Acceptance:
+  cloudFoundryDeploy: false
+  cfApiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+  cfOrg: 'a2399349trial'
+  cfSpace: 'dev'
+  cfAppName: 'app'
+  cfCredentialsId: 'deploy-to-cf'
+  uiVeri5ExecuteTests: false
+
+Release:
   cloudFoundryDeploy: true
   cfApiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
   cfOrg: 'a2399349trial'
