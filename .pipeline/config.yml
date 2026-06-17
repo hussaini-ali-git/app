@@ -33,10 +33,20 @@ stages:
 #        credentialId: 'mySystemCredentialsId'
 
   Release:
-    cfTargets:
-      - org: 'a2399349trial'
-        space: 'dev'
-        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-        appName: 'app'
-        manifest: 'manifest.yml'
-        credentialsId: 'hussaini-ali@outlook.com'
+  cloudFoundryDeploy: true
+  cfApiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+  cfOrg: 'a2399349trial'
+  cfSpace: 'dev'
+  cfAppName: 'app'
+  cfCredentialsId: 'deploy-to-cf'
+  tmsUpload: true
+
+
+
+  #  cfTargets:
+  #   - org: 'a2399349trial'
+  #     space: 'dev'
+  #    apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+  #   appName: 'app'
+  #      manifest: 'manifest.yml'
+  #     credentialsId: 'hussaini-ali@outlook.com'
